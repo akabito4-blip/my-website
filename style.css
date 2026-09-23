@@ -1,0 +1,458 @@
+:root {
+  --yellow-base: #fff6dd;
+  --yellow-accent: #ffca28;
+  --yellow-accent-dark: #f5a623;
+  --text-main: #3a2f0b;
+  --text-sub: #7a6a3a;
+  --card-bg: #ffffff;
+  --shadow: rgba(180, 140, 0, 0.18);
+  --header-h: 68px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  background: linear-gradient(135deg, var(--yellow-base) 0%, #ffe9a8 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Header / Nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px var(--shadow);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo .logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow-accent), var(--yellow-accent-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sub);
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--yellow-accent);
+  color: var(--text-main);
+}
+
+.nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 12px 20px 20px;
+    box-shadow: 0 12px 20px var(--shadow);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    padding: 12px 14px;
+  }
+}
+
+/* ---------- Layout ---------- */
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 72px;
+  gap: 28px;
+}
+
+.card {
+  background: var(--card-bg);
+  max-width: 640px;
+  width: 100%;
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 20px 40px var(--shadow);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+.card.center {
+  text-align: center;
+}
+
+.card.delay-1 { animation-delay: 0.1s; }
+.card.delay-2 { animation-delay: 0.25s; }
+.card.delay-3 { animation-delay: 0.4s; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  background: var(--yellow-accent);
+  padding: 4px 16px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.lead {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--yellow-accent), transparent);
+  margin: 24px 0;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--yellow-accent-dark);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: #e08e00;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--shadow);
+}
+
+.btn.secondary {
+  background: #fff;
+  color: var(--text-main);
+  border: 2px solid var(--yellow-accent);
+}
+
+.btn.secondary:hover {
+  background: var(--yellow-accent);
+}
+
+/* ---------- Grid cards (service / highlight) ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid .card {
+  padding: 28px 24px;
+}
+
+.grid-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--yellow-accent), var(--yellow-accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.grid h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.grid p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-sub);
+}
+
+/* ---------- Profile page ---------- */
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--yellow-accent), var(--yellow-accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 8px 18px var(--shadow);
+}
+
+.name {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.role-badge {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: var(--yellow-accent);
+  padding: 4px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.bio-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-sub);
+  text-align: left;
+  margin: 0;
+}
+
+.detail-list {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-list li {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f4e5b8;
+  font-size: 14px;
+}
+
+.detail-list li:last-child {
+  border-bottom: none;
+}
+
+.detail-list .label {
+  flex: 0 0 96px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.detail-list .value {
+  color: var(--text-sub);
+}
+
+/* ---------- Contact page ---------- */
+
+.form-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #f0dfa4;
+  background: #fffdf5;
+  color: var(--text-main);
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--yellow-accent-dark);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18);
+}
+
+.contact-info {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-info li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.form-note {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 8px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding: 24px 20px 40px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 22px;
+    border-radius: 18px;
+  }
+
+  .page-title {
+    font-size: 23px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 38px;
+  }
+}
