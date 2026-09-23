@@ -413,6 +413,198 @@ a {
   margin-top: 8px;
 }
 
+/* ---------- Timeline (history) ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.timeline li {
+  display: flex;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f4e5b8;
+}
+
+.timeline li:last-child {
+  border-bottom: none;
+}
+
+.timeline .year {
+  flex: 0 0 72px;
+  font-weight: 800;
+  color: var(--yellow-accent-dark);
+  font-size: 15px;
+}
+
+.timeline .event {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ---------- Principle cards ---------- */
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: left;
+}
+
+@media (max-width: 860px) {
+  .principle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.principle-grid .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--yellow-accent);
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.principle-grid h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.principle-grid p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-sub);
+}
+
+/* ---------- Staff cards ---------- */
+
+.staff-card {
+  text-align: left;
+}
+
+.staff-card .staff-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow-accent), var(--yellow-accent-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.staff-card h3 {
+  margin: 0 0 2px;
+  font-size: 16px;
+}
+
+.staff-card .staff-role {
+  font-size: 12px;
+  color: var(--yellow-accent-dark);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.staff-card .staff-quals {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---------- Service table ---------- */
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+.service-table th,
+.service-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f4e5b8;
+  vertical-align: top;
+}
+
+.service-table th {
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.service-table td {
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.service-table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .service-table {
+    display: block;
+  }
+  .service-table thead {
+    display: none;
+  }
+  .service-table tbody,
+  .service-table tr,
+  .service-table td {
+    display: block;
+    width: 100%;
+  }
+  .service-table tr {
+    padding: 12px 0;
+    border-bottom: 1px solid #f4e5b8;
+  }
+  .service-table td {
+    border-bottom: none;
+    padding: 4px 0;
+  }
+  .service-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--yellow-accent-dark);
+    margin-bottom: 2px;
+  }
+}
+
+/* ---------- Tag pills ---------- */
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: #fff3cc;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
