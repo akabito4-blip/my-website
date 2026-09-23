@@ -605,6 +605,94 @@ a {
   border-radius: 999px;
 }
 
+.tag.on-card {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* ---------- Tag filter ---------- */
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.tag-filter button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-sub);
+  background: #fff;
+  border: 2px solid #f0dfa4;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag-filter button:hover {
+  border-color: var(--yellow-accent);
+}
+
+.tag-filter button.active {
+  background: var(--yellow-accent-dark);
+  border-color: var(--yellow-accent-dark);
+  color: #fff;
+}
+
+.grid .card[hidden] {
+  display: none;
+}
+
+.grid.category-grid {
+  align-items: start;
+}
+
+/* ---------- Voice / testimonial cards ---------- */
+
+.voice-card {
+  text-align: left;
+}
+
+.voice-card .voice-quote {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-sub);
+  margin: 0 0 14px;
+}
+
+.voice-card .voice-quote::before {
+  content: "“";
+  font-size: 22px;
+  color: var(--yellow-accent-dark);
+  font-weight: 800;
+  margin-right: 2px;
+}
+
+.voice-card .voice-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.voice-card .voice-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow-accent), var(--yellow-accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
